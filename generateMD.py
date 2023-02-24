@@ -9,9 +9,9 @@ def saveMarkDown(nameFile, content, action):
         archivo.write(content)
 
 
-#PROBANDO
-""" texto = "--- Este es un párrafo en formato *Markdown*."
-saveMarkDown("nombreArchivo.md",texto,"a") """
+#PROBANDO saveMarkDown()
+""" texto = "Este es un párrafo de prueba en generado con [`saveMarkDown`](../generateMD.py).\n___\n"
+saveMarkDown("saveTest.md",texto,"a") """
 
 
 #Esto seria un decorador para reutilizar la funcion base (saveMarkDown) con nuevos parametros
@@ -22,7 +22,7 @@ def decoSaveMkDw(func):
         return func(nameFile, content, action, *args, **kwargs)
     return wrapper
 
-#PROBANDO
+#PROBANDO decorador @decoSaveMkDw
 """ @decoSaveMkDw
 def haceralgo(nombre , texto , act , nuevoArgumento):
     print(nombre,texto,act,nuevoArgumento)
